@@ -16,6 +16,8 @@ public class AccountJFrame extends javax.swing.JFrame {
      */
     public AccountJFrame() {
         initComponents();
+        T_prestiti.setDragEnabled(false);
+        
     }
 
     /**
@@ -41,7 +43,7 @@ public class AccountJFrame extends javax.swing.JFrame {
         B_back = new javax.swing.JButton();
         L_permesso = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         T_prestiti.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
