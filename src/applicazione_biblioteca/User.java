@@ -17,7 +17,7 @@ public class User {
     private Boolean permesso_prenotazione; 
     private Boolean permesso_aggiunta; 
     private Boolean permesso_rimozione; 
-    private User user;
+    private static User user;
     
     public User (String nome, String cognome, String data_nascita,
             String residenza, Boolean permesso_prenotazione, 
@@ -89,11 +89,11 @@ public class User {
         this.permesso_rimozione = permesso_rimozione;
     }
     
-    public void saveUser(User user){
-        this.user=user;
+    public static void saveUser(User user){
+        User.user=user;
     }
     
-    public User getUser(){
+    public static User getUser(){
         return user;
     }
     

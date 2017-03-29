@@ -164,6 +164,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                         else
                     perm_rim=true;
               User utente = new User(rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(9), perm_pren, perm_agg, perm_rim);
+              User.saveUser(utente);
               StartJFrame.setLogin(true);
               //StartJFrame.setBen("Benvenuto "+ rs.getString(2));
               StartJFrame.Text_login_ben.setText("Benvenuto " + rs.getString(2) + " "+ rs.getString(3));

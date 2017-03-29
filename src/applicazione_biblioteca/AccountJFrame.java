@@ -10,13 +10,13 @@ package applicazione_biblioteca;
  * @author 7-5AINF
  */
 public class AccountJFrame extends javax.swing.JFrame {
-
+        private User utente;
     /**
      * Creates new form AccountJFrame
      */
     public AccountJFrame() {
-        initComponents();
-        T_prestiti.setDragEnabled(false);
+        initComponents();      
+        utente = User.getUser();
         
     }
 
@@ -56,6 +56,8 @@ public class AccountJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        T_prestiti.setColumnSelectionAllowed(false);
+        T_prestiti.setEnabled(false);
         jScrollPane1.setViewportView(T_prestiti);
 
         jLabel1.setText("Nome:");

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class StartJFrame extends javax.swing.JFrame {
 
-    private static Boolean login;
+    private static Boolean login = false;
 
     /**
      * Creates new form StartJFrame
@@ -103,7 +103,12 @@ public class StartJFrame extends javax.swing.JFrame {
         */
        
        
-       //if(login){
+       if(login){
+           //FINESTRA PER CHI HA GIA ESEGUITO IL LOGIN
+            System.out.println("Prova1");
+            AccountJFrame AJF = new AccountJFrame();
+            AJF.setVisible(true);
+       }else{       
            try{     //FINESTRA PER LOGIN
                 LoginJFrame j =new LoginJFrame ();
                 j.dispose(); 
@@ -114,10 +119,7 @@ public class StartJFrame extends javax.swing.JFrame {
             }catch(Exception e){
                 System.out.println(e);
             }
-            //this.setEnabled(false);
-       //}else{       //FINESTRA PER CHI HA GIA ESEGUITO IL LOGIN
-           
-      // }
+       }
        
        
     }//GEN-LAST:event_B_loginMouseClicked
