@@ -105,7 +105,6 @@ public class StartJFrame extends javax.swing.JFrame {
        
        if(login){
            //FINESTRA PER CHI HA GIA ESEGUITO IL LOGIN
-            System.out.println("Prova1");
             AccountJFrame AJF = new AccountJFrame();
             AJF.setVisible(true);
        }else{       

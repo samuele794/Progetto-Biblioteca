@@ -17,7 +17,10 @@ public class AccountJFrame extends javax.swing.JFrame {
     public AccountJFrame() {
         initComponents();      
         utente = User.getUser();
-        
+        L_nome.setText(utente.getNome());
+        L_cognome.setText(utente.getCognome());
+        L_data_nascita.setText(utente.getData_nascita());
+        L_residenza.setText(utente.getResidenza());
     }
 
     /**
@@ -40,7 +43,6 @@ public class AccountJFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         L_residenza = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        B_back = new javax.swing.JButton();
         L_permesso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -97,8 +99,7 @@ public class AccountJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel9)
-                            .addComponent(B_back))
+                            .addComponent(jLabel9))
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(L_residenza)
@@ -111,9 +112,7 @@ public class AccountJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(B_back)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(L_nome))
@@ -177,7 +176,6 @@ public class AccountJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton B_back;
     private javax.swing.JLabel L_cognome;
     private javax.swing.JLabel L_data_nascita;
     private javax.swing.JLabel L_nome;
