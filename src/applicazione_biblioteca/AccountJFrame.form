@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -41,7 +41,7 @@
                           <Component id="L_data_nascita" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="L_cognome" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="L_nome" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="L_permesso" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="L_permesso" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -73,11 +73,11 @@
                   <Component id="L_residenza" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="L_permesso" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <Component id="L_permesso" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="275" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -102,7 +102,6 @@
                 <Column editable="true" title="Title 4" type="java.lang.Object"/>
               </Table>
             </Property>
-            <Property name="columnSelectionAllowed" type="boolean" value="false"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
@@ -157,9 +156,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="L_permesso">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Label_permesso"/>
-      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CodeGeneration" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="utente = User.getUser();&#xd;&#xa;L_nome.setText(utente.getNome());&#xd;&#xa;L_cognome.setText(utente.getCognome());&#xd;&#xa;L_data_nascita.setText(utente.getData_nascita());&#xd;&#xa;L_residenza.setText(utente.getResidenza());&#xd;&#xa;        &#xd;&#xa;&#xd;&#xa;if(utente.getPermesso_prenotazione()==true){&#xd;&#xa;            L_permesso.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/icon/ic_done_black_24dp.png&quot;)));&#xd;&#xa;        }else{&#xd;&#xa;            L_permesso.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/icon/ic_clear_black_24dp.png&quot;)));&#xd;&#xa;}&#xd;&#xa;&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="AccountJFrame_L_permesso"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -162,9 +162,7 @@ public class StartJFrame extends javax.swing.JFrame {
         StartJFrame.login = login;
     }
     
-  /*  public static void setBen(String l){
-        Text_login_ben.setText(l);
-    }*/
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -15,13 +15,13 @@ public class AccountJFrame extends javax.swing.JFrame {
      * Creates new form AccountJFrame
      */
     public AccountJFrame() {
-        initComponents();      
-        utente = User.getUser();
-        L_nome.setText(utente.getNome());
-        L_cognome.setText(utente.getCognome());
-        L_data_nascita.setText(utente.getData_nascita());
-        L_residenza.setText(utente.getResidenza());
-    }
+        
+        
+        initComponents();     
+        
+        
+        
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,7 +43,13 @@ public class AccountJFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         L_residenza = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        L_permesso = new javax.swing.JLabel();
+        try {
+            L_permesso =(javax.swing.JLabel)java.beans.Beans.instantiate(getClass().getClassLoader(), "applicazione_biblioteca.AccountJFrame_L_permesso");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,7 +64,6 @@ public class AccountJFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        T_prestiti.setColumnSelectionAllowed(false);
         T_prestiti.setEnabled(false);
         jScrollPane1.setViewportView(T_prestiti);
 
@@ -83,7 +88,17 @@ public class AccountJFrame extends javax.swing.JFrame {
         jLabel9.setText("Permesso di prestito");
         jLabel9.setToolTipText("");
 
-        L_permesso.setText("Label_permesso");
+        utente = User.getUser();
+        L_nome.setText(utente.getNome());
+        L_cognome.setText(utente.getCognome());
+        L_data_nascita.setText(utente.getData_nascita());
+        L_residenza.setText(utente.getResidenza());
+
+        if(utente.getPermesso_prenotazione()==true){
+            L_permesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ic_done_black_24dp.png")));
+        }else{
+            L_permesso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ic_clear_black_24dp.png")));
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,7 +121,7 @@ public class AccountJFrame extends javax.swing.JFrame {
                             .addComponent(L_data_nascita)
                             .addComponent(L_cognome)
                             .addComponent(L_nome)
-                            .addComponent(L_permesso))))
+                            .addComponent(L_permesso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,10 +144,10 @@ public class AccountJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(L_residenza))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
-                    .addComponent(L_permesso))
-                .addGap(18, 18, 18)
+                    .addComponent(L_permesso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -174,6 +189,8 @@ public class AccountJFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel L_cognome;
