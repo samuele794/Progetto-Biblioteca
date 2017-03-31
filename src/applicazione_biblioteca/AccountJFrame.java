@@ -17,7 +17,8 @@ public class AccountJFrame extends javax.swing.JFrame {
     public AccountJFrame() {
         
         
-        initComponents();     
+        initComponents();
+        
         
         
         
@@ -55,15 +56,20 @@ public class AccountJFrame extends javax.swing.JFrame {
 
         T_prestiti.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Data Inizio Prestito", "Data Fine Prestito", "Titolo Libro"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         T_prestiti.setEnabled(false);
         jScrollPane1.setViewportView(T_prestiti);
 
@@ -121,7 +127,7 @@ public class AccountJFrame extends javax.swing.JFrame {
                             .addComponent(L_data_nascita)
                             .addComponent(L_cognome)
                             .addComponent(L_nome)
-                            .addComponent(L_permesso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(L_permesso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,11 +149,14 @@ public class AccountJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(L_residenza))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(L_permesso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(L_permesso, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -189,6 +198,19 @@ public class AccountJFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void compileTable(){
+        
+        //https://docs.oracle.com/javase/7/docs/api/javax/swing/table/TableModel.html#setValueAt(java.lang.Object,%20int,%20int)
+                
+       //fare query SELECT DA_INIZIO_PRESTITO
+       
+       //creare righa 	addRowSelectionInterval(int index0, int index1)
+       //inserire dati setValueAt(Object aValue, int rowIndex, int columnIndex)
+       
+       
+    }
+    
     
    
 
