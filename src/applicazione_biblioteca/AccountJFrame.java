@@ -201,6 +201,8 @@ public class AccountJFrame extends javax.swing.JFrame {
     
     public void compileTable(){
         
+        System.out.println();
+        
         //https://docs.oracle.com/javase/7/docs/api/javax/swing/table/TableModel.html#setValueAt(java.lang.Object,%20int,%20int)
                 
        //fare query SELECT DA_INIZIO_PRESTITO
