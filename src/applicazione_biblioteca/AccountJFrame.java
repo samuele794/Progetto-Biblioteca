@@ -5,20 +5,32 @@
  */
 package applicazione_biblioteca;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author 7-5AINF
  */
 public class AccountJFrame extends javax.swing.JFrame {
         private User utente;
-    /**
-     * Creates new form AccountJFrame
-     */
+    
+    private String nome_utente= "5a_pc3";
+    private String pass = "5a_pc3";
+    private String url = "jdbc:mysql://serverlab5:3307/5a_pc3";
+    private String query = null;
+    private Connection con = null;
+    private Statement st = null;
+    private ResultSet rs = null;
+
     public AccountJFrame() {
-        
-        
+        compileTable();
         initComponents();
-        
         
         
         
@@ -54,22 +66,7 @@ public class AccountJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        T_prestiti.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Data Inizio Prestito", "Data Fine Prestito", "Titolo Libro"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        T_prestiti.setModel(model);
         T_prestiti.setEnabled(false);
         jScrollPane1.setViewportView(T_prestiti);
 
@@ -200,9 +197,34 @@ public class AccountJFrame extends javax.swing.JFrame {
     }
     
     public void compileTable(){
+        model =new DefaultTableModel();
+        model.addColumn("Data inizio prestito");
+        model.addColumn("Data fine prestito");
+        model.addColumn("Titolo Libro");
         
-        System.out.println();
+        try{
+            //1 caricare del driver
+            Class.forName("com.mysql.jdbc.Driver");
+        }catch(ClassNotFoundException caffee){
+            System.out.println(caffee);
+        }
         
+        try{
+            con = DriverManager.getConnection(url, nome_utente, pass);
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+        }
+        
+        /*query="SELECT PRENOTAZIONI.DA_INIZIO_PRESTITO, LIBRI.TITOLO"
+                + "FROM 'PRENOTAZINI'"
+                + "INNER JOIN UTENTI"
+                + "ON PRENOTAZIONI.FK_UTENTE = UTENTI.ID_UTENTE"
+                + "INNER JOIN LIBRI"
+                + "ON FK_LIBRO = LIBRO.ISBN"
+                + "WHERE ID_UTENTE="+ User.getUser().*/
+              
+        
+        //TableModel myData = new MyTableModel();               
         //https://docs.oracle.com/javase/7/docs/api/javax/swing/table/TableModel.html#setValueAt(java.lang.Object,%20int,%20int)
                 
        //fare query SELECT DA_INIZIO_PRESTITO
@@ -215,7 +237,7 @@ public class AccountJFrame extends javax.swing.JFrame {
     
     
    
-
+    private DefaultTableModel model;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel L_cognome;
     private javax.swing.JLabel L_data_nascita;

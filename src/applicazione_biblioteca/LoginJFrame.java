@@ -139,9 +139,7 @@ public class LoginJFrame extends javax.swing.JFrame {
             //5 elaborazione risultati
             
             while(rs.next()){
-                if(rs.wasNull()){
-                    System.out.println("vuoto2");
-                }
+                
                 int perm_pren1 = rs.getInt(5);
                 int perm_agg1 = rs.getInt(6);
                 int perm_rim1 = rs.getInt(7);
