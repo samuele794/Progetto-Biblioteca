@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class StartJFrame extends javax.swing.JFrame {
 
     private static Boolean login = false;
-
+    private static Boolean signup=true;
     /**
      * Creates new form StartJFrame
      */
@@ -33,6 +33,7 @@ public class StartJFrame extends javax.swing.JFrame {
         B_login = new javax.swing.JButton();
         B_gestione = new javax.swing.JButton();
         Text_login_ben = new javax.swing.JLabel();
+        SignupButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bibliteca 2.0");
@@ -57,6 +58,13 @@ public class StartJFrame extends javax.swing.JFrame {
 
         Text_login_ben.setText("Login");
 
+        SignupButton.setText("Registrati");
+        SignupButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SignupButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,12 +75,15 @@ public class StartJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(B_ric_e_pren)
                         .addGap(18, 18, 18)
-                        .addComponent(B_gestione))
+                        .addComponent(B_gestione)
+                        .addGap(100, 100, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(B_login, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Text_login_ben)))
-                .addGap(100, 100, Short.MAX_VALUE))
+                        .addComponent(Text_login_ben)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SignupButton)
+                        .addGap(43, 43, 43))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,8 +95,10 @@ public class StartJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Text_login_ben)
-                        .addGap(27, 27, 27)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Text_login_ben)
+                            .addComponent(SignupButton))
+                        .addGap(22, 22, 22)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(B_ric_e_pren)
                     .addComponent(B_gestione))
@@ -122,6 +135,16 @@ public class StartJFrame extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_B_loginMouseClicked
+
+    private void SignupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignupButtonMouseClicked
+        // TODO add your handling code here:
+
+        if(signup){
+            SignupJFrame SJF=new SignupJFrame();
+            SJF.setVisible(true);
+        }
+
+    }//GEN-LAST:event_SignupButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -169,6 +192,7 @@ public class StartJFrame extends javax.swing.JFrame {
     private javax.swing.JButton B_gestione;
     private javax.swing.JButton B_login;
     private javax.swing.JButton B_ric_e_pren;
+    private javax.swing.JButton SignupButton;
     public static javax.swing.JLabel Text_login_ben;
     // End of variables declaration//GEN-END:variables
 }
